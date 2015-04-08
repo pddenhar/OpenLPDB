@@ -3,7 +3,7 @@
     android:layout_height="match_parent" tools:context=".CameraView">
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         >
@@ -14,5 +14,13 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             />
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:id="@+id/found_plates"
+            android:layout_weight="2" />
+
     </LinearLayout>
+
 </RelativeLayout>

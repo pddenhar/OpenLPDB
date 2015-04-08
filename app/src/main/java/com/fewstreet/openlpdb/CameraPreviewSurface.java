@@ -12,12 +12,12 @@ import android.view.WindowManager;
 /**
  * Created by Peter on 3/24/2015.
  */
-public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
+public class CameraPreviewSurface extends SurfaceView implements SurfaceHolder.Callback {
     private SurfaceHolder mHolder;
     private Camera mCamera;
     private String TAG = "CameraPreview";
 
-    public CameraPreview(Context context) {
+    public CameraPreviewSurface(Context context) {
         super(context);
 
         // Install a SurfaceHolder.Callback so we get notified when the

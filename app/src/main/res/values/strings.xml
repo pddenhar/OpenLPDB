@@ -3,4 +3,9 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="data_upload">Data Upload</string>
+    <string name="auto_upload">Auto Upload</string>
+    <string name="auto_upload_desc">Upload data without prompting</string>
+    <string name="server_address_desc">Where to upload the data</string>
+    <string name="server_address_title">Server Address</string>
 </resources>

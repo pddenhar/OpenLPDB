@@ -1,18 +1,24 @@
 package com.fewstreet.openlpdb;
 
+import android.content.Intent;
+import android.hardware.Camera;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
-import android.hardware.Camera;
+import android.widget.ListView;
 
-public class CameraActivity extends ActionBarActivity {
+import java.util.ArrayList;
+
+public class MainCameraActivity extends ActionBarActivity {
 
     private Camera mCamera;
-    private CameraPreview mPreview;
-    private final static String TAG = "CameraActivity";
+    private CameraPreviewSurface mPreview;
+    private final static String TAG = "MainCameraActivity";
+    private ArrayList <PlateData> foundPlates;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,9 +27,16 @@ public class CameraActivity extends ActionBarActivity {
         setContentView(R.layout.activity_camera_view);
 
         // Create our Preview view and set it as the content of our activity.
-        mPreview = new CameraPreview(this);
+        mPreview = new CameraPreviewSurface(this);
         FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
         preview.addView(mPreview);
+
+        //set up the list view with an adapter
+        foundPlates = new ArrayList<PlateData>();
+        final ListView platesListView = (ListView) findViewById(R.id.found_plates);
+        final ArrayAdapter adapter = new ArrayAdapter(this,
+                android.R.layout.simple_list_item_1, foundPlates);
+        platesListView.setAdapter(adapter);
     }
     @Override
     public void onResume() {
@@ -79,6 +92,8 @@ public class CameraActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
             return true;
         }
 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/data_upload"
+        android:key="pref_key_data_upload">
+        <CheckBoxPreference
+            android:key="pref_key_auto_upload"
+            android:summary="@string/auto_upload_desc"
+            android:title="@string/auto_upload"
+            android:defaultValue="true" />
+        <com.fewstreet.openlpdb.EditTextPreferenceSummary
+            android:key="pref_key_server_address"
+            android:dependency="pref_key_auto_upload"
+            android:defaultValue="http://"
+            android:title="@string/server_address_title" />
+    </PreferenceCategory>
+</PreferenceScreen>
